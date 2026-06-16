@@ -206,6 +206,51 @@ const starWarsList = [
     { name: "Hunter", image: "https://i.pinimg.com/736x/21/8b/4f/218b4f16d19fdc908cee9b4662c1409a.jpg" }
 ];
 
+const percyJacksonList = [
+    // The Core Trio
+    { name: "Percy Jackson", image: "https://i.pinimg.com/736x/35/70/12/357012707a12065c0263d34a7d9fd746.jpg" },
+    { name: "Anananeth Chase", image: "https://i.pinimg.com/736x/9f/fa/8c/9ffa8c197bbcd28e5cb07743d4a0ab1f.jpg" },
+    { name: "Grover Underwood", image: "https://i.pinimg.com/736x/80/75/ca/8075ca0e42615849efd579b9e585e2de.jpg" },
+
+    // Camp Half-Blood Veterans
+    { name: "Luke Castellan", image: "https://i.pinimg.com/736x/d9/22/a3/d922a3c8e4df088c2a1316c5f92a1c60.jpg" },
+    { name: "Nico di Angelo", image: "https://i.pinimg.com/1200x/c3/62/85/c362856adeedcc11694bd2509c6ed3c2.jpg" },
+    { name: "Thalia Grace", image: "https://i.pinimg.com/736x/ca/13/ea/ca13ea7a72531d51be0c0f623108644c.jpg" },
+    { name: "Clarisse La Rue", image: "https://i.pinimg.com/1200x/b4/81/17/b48117aa1348c1650e021d4a1dc319cd.jpg" },
+    { name: "Tyson", image: "https://i.pinimg.com/736x/8f/cd/1d/8fcd1dfe82bf6237e1fc33dd729a219c.jpg" },
+    { name: "Chiron", image: "https://i.pinimg.com/736x/f6/da/eb/f6daeb003b0bcb9ed12eabcd6032d1f1.jpg" },
+    { name: "Rachel Elizabeth Dare", image: "https://i.pinimg.com/1200x/b8/f2/40/b8f2409ef94aac93979cc75e6924e1d1.jpg" },
+    { name: "Silena Beauregard", image: "https://i.pinimg.com/474x/d3/48/fa/d348fa455967b376f85357726da84a1c.jpg" },
+    { name: "Charles Beckendorf", image: "https://i.pinimg.com/736x/79/5d/52/795d5214430876a119961f16dfae300c.jpg" },
+    { name: "Zoe Nightshade", image: "https://i.pinimg.com/736x/7a/b0/86/7ab0867840ef90fb571740effaefdfd1.jpg" },
+    { name: "Bianca di Angelo", image: "https://i.pinimg.com/736x/cf/3a/51/cf3a51ebfd03b65b78fbac5f0cb818db.jpg" },
+    { name: "Mr. D (Dionysus)", image: "https://i.pinimg.com/736x/a7/d5/a2/a7d5a22fbe4bd29ae2bd5f7b0d3b3bbb.jpg" },
+    { name: "Will Solace", image: "https://i.pinimg.com/736x/3e/2a/e4/3e2ae415a357b807671cf82986eca66b.jpg" },
+    { name: "Connor Stoll", image: "https://i.pinimg.com/736x/f1/82/56/f182566c084f2cd3ca8e9b74bd583a59.jpg" },
+    { name: "Travis Stoll", image: "https://i.pinimg.com/736x/d8/3f/fe/d83ffec0c9c9789ed7514ffdca7a6ca2.jpg" },
+
+
+    // The Heroes of Olympus Expansion (The Prophecy of Seven + Key Figures)
+    { name: "Jason Grace", image: "https://i.pinimg.com/1200x/0b/32/08/0b32089c3c651a6b1aa6ec128f92475d.jpg" },
+    { name: "Piper McLean", image: "https://i.pinimg.com/1200x/e1/89/cc/e189cc36ebc5dd2ec788bac7189d976e.jpg" },
+    { name: "Leo Valdez", image: "https://i.pinimg.com/1200x/f0/6c/1d/f06c1d39577f1a4e5c434334a3c03d68.jpg" },
+    { name: "Frank Zhang", image: "https://i.pinimg.com/736x/60/3c/1f/603c1ff32d838e0cf6468167d0851c54.jpg" },
+    { name: "Hazel Levesque", image: "https://i.pinimg.com/736x/ed/a4/5e/eda45e38c8c7a5932efd34f81d56ffef.jpg" },
+    { name: "Reyna Avila Ramírez-Arellano", image: "https://i.pinimg.com/1200x/d9/04/8b/d9048b12ce8847aac70937b452ca2d5e.jpg" },
+    { name: "Coach Gleeson Hedge", image: "https://i.pinimg.com/736x/c3/04/52/c3045232c09adac115c94fb3303907c7.jpg" },
+    { name: "Octavian", image: "https://i.pinimg.com/1200x/e6/4a/49/e64a491668f7bd2a3bfef1e56c9172db.jpg" },
+    { name: "Calypso", image: "https://i.pinimg.com/736x/c4/4f/6e/c44f6e42f6586530db9f8c521c816380.jpg" }
+
+    // // Gods, Immortals & Villains
+    // { name: "Kronos", image: "https://i.pinimg.com/736x/8d/2d/76/8d2d763223e9951c89c8bffa41a5ef56.jpg" },
+    // { name: "Ethan Nakamura", image: "https://i.pinimg.com/1200x/89/69/0f/89690f3dd43a8a6ac7f4845f0a0c9898.jpg" },
+    // { name: "Hera / Juno", image: "https://i.pinimg.com/1200x/0b/9b/b7/0b9bb7d3c232faed04c1432909f5dc12.jpg" },
+    // { name: "Poseidon / Neptune", image: "https://i.pinimg.com/1200x/f1/0b/68/f10b6858abe8700c04671c5b64022b23.jpg" },
+    // { name: "Zeus / Jupiter", image: "https://i.pinimg.com/1200x/05/f0/9a/05f09a9dbd34da64e0e11201b48ec5db.jpg" },
+    // { name: "Hades / Pluto", image: "https://i.pinimg.com/1200x/21/af/e3/21afe3c4ace5bdf4d49820d87f2500e9.jpg" },
+    // { name: "Aphrodite / Venus", image: "https://i.pinimg.com/736x/fb/93/6d/fb936de7a703c5786467a665225fab2f.jpg" }
+];
+
 // ==========================================
 // 2. Global State Tracking Variables
 // ==========================================
@@ -239,17 +284,20 @@ const startGame = (chosenUniverse) => {
     if (chosenUniverse === 'star-wars') {
         initialCharacters = starWarsList;
         document.getElementById("main-title").innerText = "Star Wars Character Ranker";
-        // Fixed syntax: Added url() wrap
         document.body.style.backgroundImage = "url('assets/images/star wars.jpg')";
-        document.body.style.color = "#bfd8cd";
+        document.body.style.color = "#bfd8cd"; // Sleek off-white/green accent
+
+    } else if (chosenUniverse === 'percy-jackson') {
+        initialCharacters = percyJacksonList;
+        document.getElementById("main-title").innerText = "Percy Jackson Character Ranker";
+        document.body.style.backgroundImage = "url('assets/images/percy jackson.jpg')";
+        document.body.style.color = "#a2d2ff"; // Ocean / Camp Half-Blood blue text
 
     } else {
         initialCharacters = the100List;
         document.getElementById("main-title").innerText = "The 100 Character Ranker";
-        // Fixed syntax: Added url() wrap
         document.body.style.backgroundImage = "url('assets/images/the 100.jpg')";
-        document.body.style.color = "black";
-
+        document.body.style.color = "black"; // Dark contrast for Grounder/Ark aesthetics
     }
 
     // Prepare arrays and estimations dynamically
@@ -378,6 +426,7 @@ const finishSorting = () => {
 // Universe choice selections
 document.getElementById('btn-choose-the100').addEventListener('click', () => startGame('the-100'));
 document.getElementById('btn-choose-starwars').addEventListener('click', () => startGame('star-wars'));
+document.getElementById('btn-choose-percy').addEventListener('click', () => startGame('percy-jackson'));
 
 // Gameplay button clicks
 btnLeft.addEventListener('click', () => handleChoice('left'));

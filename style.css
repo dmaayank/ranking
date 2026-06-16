@@ -30,17 +30,18 @@ button {
     background: #333;
     color: white;
     border: 2px solid #555;
-    padding: 20px 40px;
-    font-size: 1.2rem;
+    padding: 15px 25px;
+    font-size: 1.1rem;
     cursor: pointer;
     border-radius: 8px;
-    width: 45%;
+
+    width: 220px;      /* fixed width */
+    min-height: 120px; /* optional */
+
     transition: 0.2s;
     margin-top: 20px;
 
-    /* Dynamic adjustments to make image + text look perfect */
     display: flex;
-    text-align: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
