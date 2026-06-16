@@ -1,0 +1,157 @@
+/* ==========================================
+   1. Base & Global Styles (Desktop Defaults)
+   ========================================== */
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background: #121212;
+    color: white;
+    padding: 50px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    /* Changed from repeat-y to let 'cover' do its job smoothly */
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+
+
+button {
+    background: #333;
+    color: white;
+    border: 2px solid #555;
+    padding: 20px 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 45%;
+    transition: 0.2s;
+    margin-top: 20px;
+
+    /* Dynamic adjustments to make image + text look perfect */
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover {
+    background: #555;
+    border-color: #888;
+}
+
+button.selected {
+    background: #83919c;
+    border-color: #9fb4ab;
+    transform: scale(0.98);
+}
+
+/* ==========================================
+   3. UI Screen States
+   ========================================== */
+#choice {
+    display: block;
+    /* Visible immediately */
+    align-items: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#game-ui {
+    display: none;
+    /* Hidden until startGame() runs */
+}
+
+#results {
+    display: none;
+    text-align: left;
+    padding: 20px;
+    border-radius: 8px;
+    color: black;
+    background-color: rgb(152, 167, 170);
+    border: rgb(97, 107, 109) solid 7px;
+}
+
+#rank-list {
+    color: black;
+    background-color: rgb(181, 197, 201);
+    border-radius: 7px;
+}
+
+ol {
+    padding-left: 20px;
+}
+
+li {
+    margin: 8px 0;
+    font-size: 1.1rem;
+}
+
+img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+/* ==========================================
+   4. Mobile Overrides (MUST STAY AT THE BOTTOM)
+   ========================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+        /* Give the edges some breathing room on small screens */
+    }
+
+    #main-title {
+        font-size: 2rem;
+        /* Shrank it slightly so long titles don't wrap onto 3 lines */
+    }
+
+    .container {
+        width: 90vw;
+        /* Take up 90% of the phone's width instead of 20% */
+        margin: 0 auto;
+    }
+
+    .buttons-container {
+        display: flex;
+        flex-direction: column;
+        /* Stack the two character buttons vertically instead of side-by-side */
+        gap: 20px;
+        /* Put a nice gap between the top and bottom button */
+        margin: 20px 0;
+        width: 100%;
+        /* Take up the full width of the container */
+    }
+
+
+    button {
+        background: #333;
+        color: white;
+        border: 2px solid #555;
+        padding: 20px 40px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 60%;
+        transition: 0.2s;
+        margin: auto;
+    }
+
+}
