@@ -251,6 +251,58 @@ const percyJacksonList = [
     // { name: "Aphrodite / Venus", image: "https://i.pinimg.com/736x/fb/93/6d/fb936de7a703c5786467a665225fab2f.jpg" }
 ];
 
+const tolkienList = [
+    // --- THE LORD OF THE RINGS ---
+    { name: "Frodo Baggins", image: "https://i.pinimg.com/1200x/a6/d4/3f/a6d43fb12b2ae0f2ac12311ecc63c4d9.jpg" },
+    { name: "Aragorn", image: "https://i.pinimg.com/1200x/d4/b9/63/d4b9639d84223dc786c2b5c2489f485b.jpg" },
+    { name: "Gandalf", image: "https://i.pinimg.com/736x/a7/1c/d0/a71cd025c520d49570e37b86d333b8f0.jpg" },
+    { name: "Legolas", image: "https://i.pinimg.com/1200x/da/f5/26/daf52605237a852ddcff6a3a3c799009.jpg" },
+    { name: "Samwise Gamgee", image: "https://i.pinimg.com/736x/90/66/5a/90665ab7910504b007cee50304503fad.jpg" },
+    { name: "Gimli", image: "https://i.pinimg.com/1200x/42/af/74/42af7424b9799188e4051e9cd80cc791.jpg" },
+    { name: "Boromir", image: "https://i.pinimg.com/1200x/6e/e9/8c/6ee98c5491619b65427abee140425911.jpg" },
+    { name: "Merry Brandybuck", image: "https://i.pinimg.com/736x/5f/b9/eb/5fb9eba4ca46210a113bd62b8d98c4c8.jpg" },
+    { name: "Pippin Took", image: "https://i.pinimg.com/1200x/77/8f/aa/778faad07963937fa9a8570754ce7be4.jpg" },
+    { name: "Gollum / Sméagol", image: "https://i.pinimg.com/1200x/42/a9/25/42a925d2097263bfbf71f6d475a16e78.jpg" },
+    { name: "Arwen", image: "https://i.pinimg.com/1200x/45/f4/00/45f400ef1e147856b345770822afc966.jpg" },
+    { name: "Galadriel", image: "https://i.pinimg.com/1200x/35/42/dd/3542dd5c32cb8a8a236b280a295c5284.jpg" },
+    { name: "Elrond", image: "https://i.pinimg.com/736x/a8/4d/35/a84d35f369d6a63d6dbc37703eab71cc.jpg" },
+    { name: "Éowyn", image: "https://i.pinimg.com/736x/16/98/35/16983552f34c0e08cf19e91771ccab72.jpg" },
+    { name: "Faramir", image: "https://i.pinimg.com/736x/f7/c5/ec/f7c5ec0d68cdd4705317f7f2ca1bf83f.jpg" },
+    { name: "Sauron", image: "https://i.pinimg.com/736x/eb/b6/77/ebb677f368662714f3ed5925ec2aae21.jpg" },
+    { name: "The Witch-king of Angmar", image: "https://i.pinimg.com/1200x/9a/ba/f7/9abaf72cf05cd269180043e3af6ba45d.jpg" },
+
+    // --- THE HOBBIT EXTENSION ---
+    { name: "Bilbo Baggins", image: "https://i.pinimg.com/1200x/0e/6d/94/0e6d94626d1481c6092d3502e70299b9.jpg" },
+    { name: "Thorin Oakenshield", image: "https://i.pinimg.com/1200x/12/c2/12/12c212b41d8825cccde3c66837b881bb.jpg" },
+    { name: "Thranduil", image: "https://i.pinimg.com/736x/72/f5/e6/72f5e6d8f0c7001baa4792e25f4e8cf9.jpg" },
+    { name: "Bard the Bowman", image: "https://i.pinimg.com/1200x/69/df/bc/69dfbc731b708fb6d92a1f9c51a7d65d.jpg" },
+    { name: "Kíli", image: "https://i.pinimg.com/1200x/8f/ee/eb/8feeeb93c9e2b93eaee9d201e89203cb.jpg" },
+    { name: "Fíli", image: "https://i.pinimg.com/736x/cc/27/4f/cc274fed11ade5bf2073aa78417331c2.jpg" },
+    { name: "Balin", image: "https://i.pinimg.com/736x/47/58/16/475816d94f6f61f0f9e25dc56993e98a.jpg" },
+    { name: "Radagast the Brown", image: "https://i.pinimg.com/736x/47/58/16/475816d94f6f61f0f9e25dc56993e98a.jpg" },
+    { name: "Beorn", image: "https://i.pinimg.com/1200x/58/87/91/588791de23c08d91fdaf4d456aa6c185.jpg" },
+    { name: "Smaug", image: "https://i.pinimg.com/736x/79/1f/19/791f19a66842de89334ce3f59c2a2ece.jpg" },
+    { name: "Azog the Defiler", image: "https://i.pinimg.com/1200x/45/7f/3e/457f3e6049ba6ccdc9d98590afeb5b9b.jpg" },
+
+    // --- THE SILMARILLION (LORE & FIRST AGE) ---
+    { name: "Fëanor", image: "https://i.pinimg.com/736x/43/00/10/430010bd7fcf0569ff348aa22cf90152.jpg" },
+    { name: "Fingolfin", image: "https://i.pinimg.com/1200x/31/43/87/3143876497411c0217f8d45cb3455566.jpg" },
+    { name: "Lúthien Tinúviel", image: "https://i.pinimg.com/1200x/d9/10/86/d910862e679a0a239bb905a37c236f93.jpg" },
+    { name: "Finrod Felagund", image: "https://i.pinimg.com/736x/f8/74/d8/f874d811d3a554726e1b5529d764a8c7.jpg" },
+    { name: "Túrin Turambar", image: "https://i.pinimg.com/736x/ad/27/0d/ad270d73febb6ac24f1a78d1bf1bcc75.jpg" },
+    { name: "Tuor", image: "https://i.pinimg.com/736x/fc/51/a5/fc51a5c9ff3eaf379b009df68669c0d6.jpg" },
+    { name: "Idril Celebrindal", image: "https://i.pinimg.com/1200x/b1/c5/29/b1c5296e9965486a4503b4cc9aa22405.jpg" },
+    { name: "Maedhros", image: "https://i.pinimg.com/736x/06/f9/85/06f985ddff7199ef408b530d2e488d7e.jpg" },
+    { name: "Glorfindel", image: "https://i.pinimg.com/736x/04/0f/72/040f72c376e44f30e29c025209ed3d50.jpg" },
+    { name: "Eärendil the Mariner", image: "https://i.pinimg.com/1200x/03/15/2e/03152e85696df676e34366ece74a62dc.jpg" },
+    { name: "Elwing", image: "https://i.pinimg.com/1200x/98/e0/3c/98e03cdc6f52bf5f636834766320429e.jpg" },
+    { name: "Melkor / Morgoth", image: "https://i.pinimg.com/1200x/96/e5/8c/96e58c7d8b801cee11fee070976eb033.jpg" },
+    { name: "Celebrimbor", image: "https://i.pinimg.com/1200x/af/63/e5/af63e5aa4f90ec8100934d816ce7984f.jpg" },
+    { name: "Fingon", image: "https://i.pinimg.com/1200x/27/40/46/2740463e4018e0f164aa44344d0972a4.jpg" },
+    { name: "Elu Thingol", image: "https://i.pinimg.com/1200x/5a/32/2c/5a322c59fc20a2303239283ec688e396.jpg" },
+    { name: "Turgon", image: "https://i.pinimg.com/1200x/f3/58/fe/f358fe48fcf7cdb8a29ccaaa68251240.jpg" }
+];
+
 // ==========================================
 // 2. Global State Tracking Variables
 // ==========================================
@@ -291,8 +343,13 @@ const startGame = (chosenUniverse) => {
         initialCharacters = percyJacksonList;
         document.getElementById("main-title").innerText = "Percy Jackson Character Ranker";
         document.body.style.backgroundImage = "url('assets/images/percy jackson.jpg')";
-        document.body.style.color = "#a2d2ff"; // Ocean / Camp Half-Blood blue text
+        document.body.style.color = "#86dbc9"; // Ocean / Camp Half-Blood blue text
 
+    } else if (chosenUniverse === 'tolkien') {
+        initialCharacters = tolkienList;
+        document.getElementById("main-title").innerText = "Middle-earth Character Ranker";
+        document.body.style.backgroundImage = "url('assets/images/tolkien.jpg')";
+        document.body.style.color = "#f4d068"; // Elven gold text accent
     } else {
         initialCharacters = the100List;
         document.getElementById("main-title").innerText = "The 100 Character Ranker";
@@ -427,6 +484,8 @@ const finishSorting = () => {
 document.getElementById('btn-choose-the100').addEventListener('click', () => startGame('the-100'));
 document.getElementById('btn-choose-starwars').addEventListener('click', () => startGame('star-wars'));
 document.getElementById('btn-choose-percy').addEventListener('click', () => startGame('percy-jackson'));
+document.getElementById('btn-choose-tolkien').addEventListener('click', () => startGame('tolkien'));
+
 
 // Gameplay button clicks
 btnLeft.addEventListener('click', () => handleChoice('left'));
