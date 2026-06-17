@@ -305,45 +305,48 @@ const tolkienList = [
 
 const cloneWarsList = [
     // --- THE MAIN HEROES & THE 501ST ---
-    { name: "Ahsoka Tano", image: "https://i.pinimg.com/564x/cd/85/da/cd85da73bdcfd95bda87be7163c9da96.jpg" },
-    { name: "Captain Rex (CT-7567)", image: "https://i.pinimg.com/564x/06/f0/54/06f054817cb29283738096f60046bcfd.jpg" },
-    { name: "Anakin Skywalker (Clone Wars)", image: "" },
-    { name: "Obi-Wan Kenobi (Clone Wars)", image: "" },
-    { name: "Fives (CT-5555)", image: "" },
-    { name: "Echo (CT-1409)", image: "" },
-    { name: "Jesse (CT-5597)", image: "" },
-    { name: "Commander Cody (CC-2224)", image: "" },
-    { name: "Commander Wolffe (CC-3636)", image: "" },
-    { name: "Commander Fox (CC-1010)", image: "" },
-    { name: "99", image: "" },
+    { name: "Ahsoka Tano", image: "https://i.pinimg.com/736x/f3/dd/91/f3dd91c6e368016dc2139a2ae91855a0.jpg" },
+    { name: "Captain Rex ", image: "https://i.pinimg.com/736x/1c/66/a9/1c66a943efb21786d008e07e068a37e9.jpg" },
+    { name: "Anakin Skywalker", image: "https://i.pinimg.com/1200x/fe/31/93/fe31934118a281c67fe313d4557eeb0d.jpg" },
+    { name: "Obi-Wan Kenobi", image: "https://i.pinimg.com/1200x/2f/d1/2b/2fd12b8ce49a9f0bea3b5f82888c14b8.jpg" },
+    { name: "Fives", image: "https://i.pinimg.com/736x/cc/4a/7f/cc4a7fcafc666703d3eac5720ad18f77.jpg" },
+    { name: "Echo ", image: "https://i.pinimg.com/736x/92/e4/ef/92e4ef6310eb95cf4c1a15483dae4bab.jpg" },
+    { name: "Jesse", image: "https://i.pinimg.com/1200x/55/b1/83/55b183f7299c1214ec0d09122aaeebf4.jpg" },
+    { name: "Commander Cody", image: "https://i.pinimg.com/736x/b0/9d/3e/b09d3e3f80a61d58db765139f096cba6.jpg" },
+    { name: "Commander Wolffe", image: "https://i.pinimg.com/1200x/a4/bf/8b/a4bf8b30857c3876152c6e360935dac4.jpg" },
+    { name: "Commander Fox", image: "https://i.pinimg.com/1200x/84/b9/ec/84b9ec7c4e1f85bc3dfc29250149c1cb.jpg" },
+    { name: "99", image: "https://i.pinimg.com/736x/e4/b3/48/e4b348221f584c0eb2385273e9520301.jpg" },
 
     // --- VILLAINS & THE DARK SIDE ---
-    { name: "Darth Maul (Crimson Dawn / Mandalore)", image: "https://i.pinimg.com/564x/6c/34/00/6c34005ba35940d0cb4ff9719a0fb5b6.jpg" },
-    { name: "Asajj Ventress", image: "" },
-    { name: "Count Dooku", image: "" },
-    { name: "General Grievous", image: "" },
-    { name: "Savage Opress", image: "" },
-    { name: "Pre Vizsla", image: "" },
-    { name: "Mother Talzin", image: "" },
-    { name: "Admiral Trench", image: "" },
+    { name: "Darth Maul", image: "https://i.pinimg.com/1200x/d7/71/c7/d771c7e77b06f88c903b2a8a086d52cf.jpg" },
+    { name: "Asajj Ventress", image: "https://i.pinimg.com/1200x/e7/17/49/e71749567fa1cf1ae487e98c6b0d602f.jpg" },
+    { name: "Count Dooku", image: "https://i.pinimg.com/1200x/2c/f2/b7/2cf2b77049565c4f4db4fe0ede01ff4c.jpg" },
+    { name: "General Grievous", image: "https://i.pinimg.com/736x/8b/39/e8/8b39e8d0e94159e55b898be35a2f9f42.jpg" },
+    { name: "Savage Opress", image: "https://i.pinimg.com/736x/37/d0/e4/37d0e421b0ee412ed9fc71ba7290f7da.jpg" },
+    { name: "Pre Vizsla", image: "https://i.pinimg.com/736x/31/1c/7b/311c7b553c17cb40a5db662956bb869b.jpg" },
+    { name: "Mother Talzin", image: "https://i.pinimg.com/1200x/14/71/40/147140221b83e2b037e719254c9e46d0.jpg" },
+    { name: "Pong Krell", image: "https://i.pinimg.com/736x/1e/fd/23/1efd2327cf52ebf3c580aa83f65cd6f7.jpg" },
+    { name: "Chancellor Palpatine", image: "https://i.pinimg.com/1200x/6f/a9/c2/6fa9c2c68b75720b46b516ad84fea500.jpg" },
+
 
     // --- BOUNTY HUNTERS & UNDERWORLD ---
-    { name: "Cad Bane", image: "" },
-    { name: "Hondo Ohnaka", image: "" },
-    { name: "Aurra Sing", image: "" },
-    { name: "Embo", image: "" },
-    { name: "Boba Fett (Young)", image: "" },
+    { name: "Cad Bane", image: "https://i.pinimg.com/736x/3e/d5/e6/3ed5e698b1b6f96fe89834566bf07c46.jpg" },
+    { name: "Hondo Ohnaka", image: "https://i.pinimg.com/736x/b6/c4/d6/b6c4d6eb166f6aafb0f53df0dadaf164.jpg" },
+    { name: "Aurra Sing", image: "https://i.pinimg.com/1200x/4b/3d/41/4b3d41f2b709be0dd28bb67e972471fb.jpg" },
+    { name: "Embo", image: "https://i.pinimg.com/736x/29/35/05/293505c12c30f97bdb29bb0df59d99a5.jpg" },
+    { name: "Boba Fett", image: "https://i.pinimg.com/1200x/24/d1/80/24d180491952f0ccd8cb52e2b7b3a1b5.jpg" },
 
     // --- MANDALORE & POLITICS ---
-    { name: "Duchess Satine Kryze", image: "" },
-    { name: "Bo-Katan Kryze (Death Watch)", image: "" },
-    { name: "Padmé Amidala (Clone Wars)", image: "" },
+    { name: "Duchess Satine Kryze", image: "https://i.pinimg.com/736x/db/8b/e9/db8be92e8335e3cb116cd824ab75a0a9.jpg" },
+    { name: "Bo-Katan Kryze", image: "https://i.pinimg.com/736x/b5/91/f9/b591f969a2b00a2b146e07fbfde10586.jpg" },
+    { name: "Padmé Amidala", image: "https://i.pinimg.com/736x/1c/e8/9a/1ce89a6d957dd813c20cb97cb7e6e9c7.jpg" },
+    { name: "Bail Organa", image: "https://i.pinimg.com/1200x/fb/8a/c3/fb8ac39e60febadd21ef982c778830c6.jpg" },
 
     // --- JEDI COUNCIL HIGH LIGHTS ---
-    { name: "Plo Koon", image: "" },
-    { name: "Kit Fisto", image: "" },
-    { name: "Yoda (Clone Wars)", image: "" },
-    { name: "Mace Windu (Clone Wars)", image: "" }
+    { name: "Plo Koon", image: "https://i.pinimg.com/1200x/c7/9c/29/c79c2961440d28208d7dc561e138c0c8.jpg" },
+    { name: "Kit Fisto", image: "https://i.pinimg.com/1200x/43/35/23/433523eee4401b06ec9e26ba30f6a3ba.jpg" },
+    { name: "Yoda", image: "https://i.pinimg.com/736x/89/0c/bc/890cbce4959b71b6efe5cb318a7deeef.jpg" },
+    { name: "Mace Windu ", image: "https://i.pinimg.com/1200x/89/00/7c/89007c48e12fb383b8e3043cce4c66b6.jpg" }
 ];
 
 // ==========================================
