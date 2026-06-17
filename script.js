@@ -587,6 +587,9 @@ btnRight.addEventListener('click', () => handleChoice('right'));
 document.getElementById('btn-back').addEventListener('click', () => {
     document.getElementById('game-ui').style.display = 'none';
     document.getElementById('choice').style.display = 'flex';
+    document.getElementById('main-title').innerText = "Character Ranker";
+    document.getElementById('progress').innerText = "Loading...";
+
 
     stepsTaken = 0;
     currentLeftIndex = 0;
