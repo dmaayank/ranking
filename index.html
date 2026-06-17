@@ -6,7 +6,6 @@
     <title>Character Ranker</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 </head>
 
 <body>
@@ -25,28 +24,26 @@
     </div>
 
     <div id="game-ui">
-        <div style="display: flex; justify-content: space-between; width: 100%;">
+        <div class="controls-panel">
             <button id="btn-back">← Change Universe</button>
             <button id="btn-undo" disabled>↺ Undo Last Choice</button>
         </div>
         <p id="game-prompt">Who do you prefer?</p>
+        
         <div class="buttons-container">
-            <div class="buttons-container">
-                <button id="btn-left">
-                    <img id="img-left" src="" alt="">
-                    <span id="text-left">Option A</span>
-                </button>
-                <button id="btn-right">
-                    <img id="img-right" src="" alt="">
-                    <span id="text-left">Option B</span>
-                </button>
-            </div>
+            <button id="btn-left">
+                <img id="img-left" src="" alt="">
+                <span>Option A</span> </button>
+            <button id="btn-right">
+                <img id="img-right" src="" alt="">
+                <span>Option B</span>
+            </button>
         </div>
+    </div>
 
-        <div id="results">
-            <h2>Your Final Rankings:</h2>
-            <ol id="rank-list"></ol>
-        </div>
+    <div id="results" class="container">
+        <h2>Your Final Rankings:</h2>
+        <ol id="rank-list"></ol>
     </div>
 
     <script src="script.js"></script>
