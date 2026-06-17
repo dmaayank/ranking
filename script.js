@@ -279,7 +279,7 @@ const tolkienList = [
     { name: "Kíli", image: "https://i.pinimg.com/1200x/8f/ee/eb/8feeeb93c9e2b93eaee9d201e89203cb.jpg" },
     { name: "Fíli", image: "https://i.pinimg.com/736x/cc/27/4f/cc274fed11ade5bf2073aa78417331c2.jpg" },
     { name: "Balin", image: "https://i.pinimg.com/736x/47/58/16/475816d94f6f61f0f9e25dc56993e98a.jpg" },
-    { name: "Radagast the Brown", image: "https://i.pinimg.com/736x/47/58/16/475816d94f6f61f0f9e25dc56993e98a.jpg" },
+    { name: "Radagast the Brown", image: "https://i.pinimg.com/736x/64/79/18/64791899ae5fbec908062461a4fbe588.jpg" },
     { name: "Beorn", image: "https://i.pinimg.com/1200x/58/87/91/588791de23c08d91fdaf4d456aa6c185.jpg" },
     { name: "Smaug", image: "https://i.pinimg.com/736x/79/1f/19/791f19a66842de89334ce3f59c2a2ece.jpg" },
     { name: "Azog the Defiler", image: "https://i.pinimg.com/1200x/45/7f/3e/457f3e6049ba6ccdc9d98590afeb5b9b.jpg" },
