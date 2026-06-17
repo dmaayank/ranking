@@ -20,27 +20,33 @@
             <button id="btn-choose-starwars">Star Wars</button>
             <button id="btn-choose-percy">Percy Jackson</button>
             <button id="btn-choose-tolkien">Middle-earth</button>
+            <button id="btn-choose-clonewars">The Clone Wars</button>
         </div>
     </div>
 
     <div id="game-ui">
-        <h3>Who do you prefer?</h3>
-        <div class="buttons-container">
-            <button id="btn-left">
-                <img id="img-left" src="" alt="">
-                <span id="text-left">Option A</span>
-            </button>
-            <button id="btn-right">
-                <img id="img-right" src="" alt="">
-                <span id="text-left">Option B</span>
-            </button>
+        <div style="display: flex; justify-content: space-between; width: 100%;">
+            <button id="btn-back">← Change Universe</button>
+            <button id="btn-undo" disabled>↺ Undo Last Choice</button>
         </div>
-    </div>
+        <p id="game-prompt">Who do you prefer?</p>
+        <div class="buttons-container">
+            <div class="buttons-container">
+                <button id="btn-left">
+                    <img id="img-left" src="" alt="">
+                    <span id="text-left">Option A</span>
+                </button>
+                <button id="btn-right">
+                    <img id="img-right" src="" alt="">
+                    <span id="text-left">Option B</span>
+                </button>
+            </div>
+        </div>
 
-    <div id="results">
-        <h2>Your Final Rankings:</h2>
-        <ol id="rank-list"></ol>
-    </div>
+        <div id="results">
+            <h2>Your Final Rankings:</h2>
+            <ol id="rank-list"></ol>
+        </div>
     </div>
 
     <script src="script.js"></script>

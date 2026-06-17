@@ -11,7 +11,6 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    /* Changed from repeat-y to let 'cover' do its job smoothly */
 }
 
 .container {
@@ -21,26 +20,24 @@ body {
 
 .buttons-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Changed to center to balance fixed button widths */
+    gap: 30px;              /* Gives clean, controllable space between your character choices */
     margin: 30px 0;
 }
 
-
+/* Base button defaults targeting character cards */
 button {
     background: #333;
-    color: white;
+    color: white !important; /* Force text to stay visible when global body color changes */
     border: 2px solid #555;
     padding: 15px 25px;
     font-size: 1.1rem;
     cursor: pointer;
     border-radius: 8px;
-
-    width: 220px;      /* fixed width */
-    min-height: 120px; /* optional */
-
+    width: 220px;      
+    min-height: 120px; 
     transition: 0.2s;
     margin-top: 20px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,22 +55,88 @@ button.selected {
     transform: scale(0.98);
 }
 
+#btn-left {
+    margin-right: 10px;
+}
+
+#btn-right {
+    margin-left: 10px;
+}
+
+img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+/* ==========================================
+   2. Navigation & Utility Controls Panel
+   ========================================== */
+.controls-panel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 15px auto;
+}
+
+/* Specific overrides to keep utility controls clean and tiny */
+#btn-back, #btn-undo {
+    width: auto !important;
+    min-height: auto !important;
+    padding: 8px 16px !important;
+    font-size: 0.9rem !important;
+    margin-top: 0 !important;
+    flex-direction: row;
+}
+
+#btn-back {
+    background: #222;
+    border-color: #444;
+}
+
+#btn-back:hover {
+    background: #444;
+}
+
+#btn-undo {
+    background: #443333; /* Dark muted red hue signaling correction */
+    border-color: #664444;
+    color: #ffcccc !important;
+}
+
+#btn-undo:hover:not(:disabled) {
+    background: #664444;
+}
+
+/* Clean UI state if there are no historical matches recorded yet */
+#btn-undo:disabled {
+    background: #222;
+    border-color: #333;
+    color: #555 !important;
+    cursor: not-allowed;
+    transform: none !important;
+    opacity: 0.6;
+}
+
 /* ==========================================
    3. UI Screen States
    ========================================== */
 #choice {
-    display: block;
-    /* Visible immediately */
-    align-items: center;
-    margin: auto;
     display: flex;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin: auto;
 }
 
 #game-ui {
-    display: none;
-    /* Hidden until startGame() runs */
+    display: none; /* Controlled by JavaScript visibility toggle */
+    flex-direction: column;
+    align-items: center;
 }
 
 #results {
@@ -101,13 +164,17 @@ li {
     font-size: 1.1rem;
 }
 
-img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    display: none;
+/* Swipe animations injected by gesture handlers */
+.swipe-left-anim {
+    transform: translateX(-150px) rotate(-10deg);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.swipe-right-anim {
+    transform: translateX(150px) rotate(10deg);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* ==========================================
@@ -116,43 +183,37 @@ img {
 @media (max-width: 768px) {
     body {
         padding: 20px;
-        /* Give the edges some breathing room on small screens */
     }
+
 
     #main-title {
         font-size: 2rem;
-        /* Shrank it slightly so long titles don't wrap onto 3 lines */
     }
 
     .container {
         width: 90vw;
-        /* Take up 90% of the phone's width instead of 20% */
         margin: 0 auto;
     }
 
     .buttons-container {
         display: flex;
         flex-direction: column;
-        /* Stack the two character buttons vertically instead of side-by-side */
         gap: 20px;
-        /* Put a nice gap between the top and bottom button */
         margin: 20px 0;
         width: 100%;
-        /* Take up the full width of the container */
     }
 
-
-    button {
-        background: #333;
-        color: white;
-        border: 2px solid #555;
+    /* Force choice cards to stretch cleanly and evenly on mobile touchpads */
+    button:not(#btn-back):not(#btn-undo) {
+        width: 80%;
         padding: 20px 40px;
         font-size: 1.2rem;
-        cursor: pointer;
-        border-radius: 8px;
-        width: 60%;
-        transition: 0.2s;
-        margin: auto;
+        margin: 0 auto;
     }
+    
+    .controls-panel {
+        width: 90%;
+    }
+
 
 }

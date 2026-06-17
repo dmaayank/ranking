@@ -303,6 +303,49 @@ const tolkienList = [
     { name: "Turgon", image: "https://i.pinimg.com/1200x/f3/58/fe/f358fe48fcf7cdb8a29ccaaa68251240.jpg" }
 ];
 
+const cloneWarsList = [
+    // --- THE MAIN HEROES & THE 501ST ---
+    { name: "Ahsoka Tano", image: "https://i.pinimg.com/564x/cd/85/da/cd85da73bdcfd95bda87be7163c9da96.jpg" },
+    { name: "Captain Rex (CT-7567)", image: "https://i.pinimg.com/564x/06/f0/54/06f054817cb29283738096f60046bcfd.jpg" },
+    { name: "Anakin Skywalker (Clone Wars)", image: "" },
+    { name: "Obi-Wan Kenobi (Clone Wars)", image: "" },
+    { name: "Fives (CT-5555)", image: "" },
+    { name: "Echo (CT-1409)", image: "" },
+    { name: "Jesse (CT-5597)", image: "" },
+    { name: "Commander Cody (CC-2224)", image: "" },
+    { name: "Commander Wolffe (CC-3636)", image: "" },
+    { name: "Commander Fox (CC-1010)", image: "" },
+    { name: "99", image: "" },
+
+    // --- VILLAINS & THE DARK SIDE ---
+    { name: "Darth Maul (Crimson Dawn / Mandalore)", image: "https://i.pinimg.com/564x/6c/34/00/6c34005ba35940d0cb4ff9719a0fb5b6.jpg" },
+    { name: "Asajj Ventress", image: "" },
+    { name: "Count Dooku", image: "" },
+    { name: "General Grievous", image: "" },
+    { name: "Savage Opress", image: "" },
+    { name: "Pre Vizsla", image: "" },
+    { name: "Mother Talzin", image: "" },
+    { name: "Admiral Trench", image: "" },
+
+    // --- BOUNTY HUNTERS & UNDERWORLD ---
+    { name: "Cad Bane", image: "" },
+    { name: "Hondo Ohnaka", image: "" },
+    { name: "Aurra Sing", image: "" },
+    { name: "Embo", image: "" },
+    { name: "Boba Fett (Young)", image: "" },
+
+    // --- MANDALORE & POLITICS ---
+    { name: "Duchess Satine Kryze", image: "" },
+    { name: "Bo-Katan Kryze (Death Watch)", image: "" },
+    { name: "Padmé Amidala (Clone Wars)", image: "" },
+
+    // --- JEDI COUNCIL HIGH LIGHTS ---
+    { name: "Plo Koon", image: "" },
+    { name: "Kit Fisto", image: "" },
+    { name: "Yoda (Clone Wars)", image: "" },
+    { name: "Mace Windu (Clone Wars)", image: "" }
+];
+
 // ==========================================
 // 2. Global State Tracking Variables
 // ==========================================
@@ -314,6 +357,7 @@ let nextClusters = [];
 let leftCluster = [];
 let rightCluster = [];
 let mergedCluster = [];
+let gameHistory = []; // Stores snapshots of previous rounds
 let totalStepsEstimated = 0;
 let stepsTaken = 0;
 let isAnimating = false;
@@ -350,6 +394,11 @@ const startGame = (chosenUniverse) => {
         document.getElementById("main-title").innerText = "Middle-earth Character Ranker";
         document.body.style.backgroundImage = "url('assets/images/tolkien.jpg')";
         document.body.style.color = "#f4d068"; // Elven gold text accent
+    } else if (chosenUniverse === 'clone-wars') {
+        initialCharacters = cloneWarsList;
+        document.getElementById("main-title").innerText = "The Clone Wars Character Ranker";
+        document.body.style.backgroundImage = "url('assets/images/clone-wars.jpg')";
+        document.body.style.color = "#ffa4a4"; // Crimson Republic accent
     } else {
         initialCharacters = the100List;
         document.getElementById("main-title").innerText = "The 100 Character Ranker";
@@ -366,6 +415,15 @@ const startGame = (chosenUniverse) => {
     choiceUi.style.display = 'none';
     gameUi.style.display = 'block';
     progressText.style.display = 'block';
+
+    const gamePrompt = document.getElementById("game-prompt");
+
+    // Check if the screen width is mobile size (768px or less)
+    if (window.innerWidth <= 768) {
+        gamePrompt.innerText = "Who do you prefer? (Tap or Swipe)";
+    } else {
+        gamePrompt.innerText = "Who do you prefer? (Use Left/Right Arrows)";
+    }
 
     // Kick off the sorting engine
     sortArr();
@@ -421,7 +479,7 @@ const showNextComparison = () => {
             imgLeft.src = leftChar.image;
             imgLeft.style.display = "block";
         } else {
-            imgLeft.style.display = "none"; // Hide if no image link provided
+            imgLeft.style.display = "none";
         }
 
         if (rightChar.image) {
@@ -444,6 +502,10 @@ const showNextComparison = () => {
 
 const handleChoice = (chosenSide) => {
     if (isAnimating) return;
+
+    // 💾 Take the snapshot BEFORE manipulating index configurations
+    saveStateToHistory();
+
     isAnimating = true;
     stepsTaken++;
 
@@ -485,11 +547,56 @@ document.getElementById('btn-choose-the100').addEventListener('click', () => sta
 document.getElementById('btn-choose-starwars').addEventListener('click', () => startGame('star-wars'));
 document.getElementById('btn-choose-percy').addEventListener('click', () => startGame('percy-jackson'));
 document.getElementById('btn-choose-tolkien').addEventListener('click', () => startGame('tolkien'));
-
+document.getElementById('btn-choose-clonewars').addEventListener('click', () => startGame('clone-wars'));
 
 // Gameplay button clicks
 btnLeft.addEventListener('click', () => handleChoice('left'));
 btnRight.addEventListener('click', () => handleChoice('right'));
+
+// Change Universe back button setup
+document.getElementById('btn-back').addEventListener('click', () => {
+    document.getElementById('game-ui').style.display = 'none';
+    document.getElementById('choice').style.display = 'flex';
+    
+    stepsTaken = 0;
+    currentLeftIndex = 0;
+    currentRightIndex = 0;
+    leftCluster = [];
+    rightCluster = [];
+    mergedCluster = [];
+    nextClusters = [];
+    clusters = [];
+    gameHistory = []; // Wipe out history tracking
+    
+    const undoBtn = document.getElementById('btn-undo');
+    if (undoBtn) undoBtn.disabled = true;
+
+    document.body.style.backgroundImage = 'none';
+    document.body.style.backgroundColor = '#121212';
+    document.body.style.color = 'white';
+});
+
+// Wire up Undo Event Trigger 
+document.getElementById('btn-undo').addEventListener('click', () => {
+    if (gameHistory.length === 0 || isAnimating) return;
+
+    const previousState = gameHistory.pop();
+
+    stepsTaken = previousState.stepsTaken;
+    currentLeftIndex = previousState.currentLeftIndex;
+    currentRightIndex = previousState.currentRightIndex;
+    leftCluster = previousState.leftCluster;
+    rightCluster = previousState.rightCluster;
+    mergedCluster = previousState.mergedCluster;
+    nextClusters = previousState.nextClusters;
+    clusters = previousState.clusters;
+
+    if (gameHistory.length === 0) {
+        document.getElementById('btn-undo').disabled = true;
+    }
+
+    showNextComparison();
+});
 
 // Global keyboard events
 window.addEventListener('keydown', (event) => {
@@ -501,3 +608,79 @@ window.addEventListener('keydown', (event) => {
         handleChoice('right');
     }
 });
+
+// Variables to track finger coordinates
+let touchStartX = 0;
+let touchEndX = 0;
+
+const gameContainer = document.getElementById('game-ui');
+
+// 1. Capture the exact pixel where the finger first touches the screen
+gameContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+// 2. Capture where the finger leaves the screen and calculate the swipe
+gameContainer.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipeGesture();
+}, { passive: true });
+
+// 3. Determine if the movement counts as a valid swipe
+const handleSwipeGesture = () => {
+    const swipeThreshold = 60; // Minimum distance in pixels to count as a swipe
+    const totalSwipeDistance = touchEndX - touchStartX;
+
+    // Make sure the game UI is actually visible before checking swipes
+    if (gameContainer.style.display === 'block' || gameContainer.style.display === '') {
+
+        // Swipe Right -> Prefers the RIGHT character button
+        if (totalSwipeDistance > swipeThreshold) {
+            console.log('Swiped Right!');
+            animateSwipe('right');
+            document.getElementById('btn-right').click();
+        }
+
+        // Swipe Left -> Prefers the LEFT character button
+        if (totalSwipeDistance < -swipeThreshold) {
+            console.log('Swiped Left!');
+            animateSwipe('left');
+            document.getElementById('btn-left').click();
+        }
+    }
+};
+
+const animateSwipe = (direction) => {
+    const btnLeft = document.getElementById('btn-left');
+    const btnRight = document.getElementById('btn-right');
+
+    if (direction === 'left') {
+        btnLeft.classList.add('swipe-left-anim');
+    } else {
+        btnRight.classList.add('swipe-right-anim');
+    }
+
+    // Clean up the classes after the animation finishes so the next characters look normal
+    setTimeout(() => {
+        btnLeft.classList.remove('swipe-left-anim');
+        btnRight.classList.remove('swipe-right-anim');
+    }, 300);
+}
+
+const saveStateToHistory = () => {
+    // Captures a deep snapshot of sorting tracking arrays right before changes happen
+    gameHistory.push({
+        stepsTaken: stepsTaken,
+        currentLeftIndex: currentLeftIndex,
+        currentRightIndex: currentRightIndex,
+        leftCluster: JSON.parse(JSON.stringify(leftCluster)),
+        rightCluster: JSON.parse(JSON.stringify(rightCluster)),
+        mergedCluster: JSON.parse(JSON.stringify(mergedCluster)),
+        nextClusters: JSON.parse(JSON.stringify(nextClusters)),
+        clusters: JSON.parse(JSON.stringify(clusters))
+    });
+
+    // Light up your Undo UI button element
+    const undoBtn = document.getElementById('btn-undo');
+    if (undoBtn) undoBtn.disabled = false;
+};
