@@ -352,6 +352,7 @@ const cloneWarsList = [
 // ==========================================
 // 2. Global State Tracking Variables
 // ==========================================
+let chaosList = [];
 let initialCharacters = [];
 let clusters = [];
 let currentLeftIndex = 0;
@@ -402,6 +403,12 @@ const startGame = (chosenUniverse) => {
         document.getElementById("main-title").innerText = "The Clone Wars Character Ranker";
         document.body.style.backgroundImage = "url('assets/images/clone-wars.jpg')";
         document.body.style.color = "#ffa4a4"; // Crimson Republic accent
+    } else if (chosenUniverse === 'chaos') {
+        isChaos();
+        initialCharacters = chaosList;
+        document.getElementById("main-title").innerText = "The Chaos Character Ranker";
+        document.body.style.backgroundImage = "url('assets/images/chaos.jpg')";
+        document.body.style.color = "#e0cee7"; // Crimson Republic accent
     } else {
         initialCharacters = the100List;
         document.getElementById("main-title").innerText = "The 100 Character Ranker";
@@ -441,6 +448,10 @@ const sortArr = () => {
 // 4. Core Merge Sort Engine
 // ==========================================
 const setupNextMergePair = () => {
+    console.log(
+        "clusters:", clusters.length,
+        "nextClusters:", nextClusters.length
+    );
     if (clusters.length <= 1) {
         if (clusters.length === 1) {
             nextClusters.push(clusters.shift());
@@ -493,15 +504,20 @@ const showNextComparison = () => {
         }
 
     } else {
+        // A cluster has run out of characters, wrap up this pair
         if (currentLeftIndex < leftCluster.length) {
             mergedCluster.push(...leftCluster.slice(currentLeftIndex));
         } else {
             mergedCluster.push(...rightCluster.slice(currentRightIndex));
         }
         nextClusters.push(mergedCluster);
+
+        // 🛠️ FIX: Advance to the next pair and RETURN immediately to stop execution loop
         setupNextMergePair();
+        return;
     }
 };
+
 
 const handleChoice = (chosenSide) => {
     if (isAnimating) return;
@@ -531,14 +547,24 @@ const handleChoice = (chosenSide) => {
 };
 
 const finishSorting = () => {
+    // Always ensure the results UI becomes visible
     gameUi.style.display = 'none';
     progressText.style.display = 'none';
     resultsUi.style.display = 'block';
 
-    const finalRankings = clusters[0];
+    // Guard against edge cases where clusters[0] is missing
+    const finalRankings = Array.isArray(clusters?.[0]) ? clusters[0] : [];
+
+    // If something went wrong in the merge engine, still render something useful
+    if (finalRankings.length === 0) {
+        rankList.innerHTML = `<li><em>No results produced. clusters length: ${clusters?.length ?? 'null'}</em></li>`;
+        // Helpful debug info (won't break UI)
+        console.log('finishSorting(): empty finalRankings', { clusters });
+        return;
+    }
 
     rankList.innerHTML = finalRankings
-        .map(char => `<li>${char.name}</li>`)
+        .map(char => `<li>${char?.name ?? '(unknown)'}</li>`)
         .join('');
 };
 
@@ -551,6 +577,7 @@ document.getElementById('btn-choose-starwars').addEventListener('click', () => s
 document.getElementById('btn-choose-percy').addEventListener('click', () => startGame('percy-jackson'));
 document.getElementById('btn-choose-tolkien').addEventListener('click', () => startGame('tolkien'));
 document.getElementById('btn-choose-clonewars').addEventListener('click', () => startGame('clone-wars'));
+document.getElementById('btn-choose-chaos').addEventListener('click', () => startGame('chaos'));
 
 // Gameplay button clicks
 btnLeft.addEventListener('click', () => handleChoice('left'));
@@ -560,7 +587,7 @@ btnRight.addEventListener('click', () => handleChoice('right'));
 document.getElementById('btn-back').addEventListener('click', () => {
     document.getElementById('game-ui').style.display = 'none';
     document.getElementById('choice').style.display = 'flex';
-    
+
     stepsTaken = 0;
     currentLeftIndex = 0;
     currentRightIndex = 0;
@@ -570,7 +597,7 @@ document.getElementById('btn-back').addEventListener('click', () => {
     nextClusters = [];
     clusters = [];
     gameHistory = []; // Wipe out history tracking
-    
+
     const undoBtn = document.getElementById('btn-undo');
     if (undoBtn) undoBtn.disabled = true;
 
@@ -634,25 +661,24 @@ const handleSwipeGesture = () => {
     const swipeThreshold = 60; // Minimum distance in pixels to count as a swipe
     const totalSwipeDistance = touchEndX - touchStartX;
 
-    // Make sure the game UI is actually visible before checking swipes
-    if (gameContainer.style.display === 'block' || gameContainer.style.display === '') {
+    // Check if game-ui is visible using either block or flex layouts
+    if (gameUi.style.display === 'block' || gameUi.style.display === 'flex' || gameUi.style.display === '') {
 
-        // Swipe Right -> Prefers the RIGHT character button
+        // 👉 SWIPE RIGHT = "YES!" -> Choose the TOP character card (Left slot/button)
         if (totalSwipeDistance > swipeThreshold) {
-            console.log('Swiped Right!');
-            animateSwipe('right');
-            document.getElementById('btn-right').click();
+            console.log('Swiped Right: Liked the Top Character!');
+            animateSwipe('left');
+            handleChoice('left'); // Directly calls the engine safely
         }
 
-        // Swipe Left -> Prefers the LEFT character button
+        // 👈 SWIPE LEFT = "NO!" -> Pass on them, choose the BOTTOM character card instead (Right slot/button)
         if (totalSwipeDistance < -swipeThreshold) {
-            console.log('Swiped Left!');
-            animateSwipe('left');
-            document.getElementById('btn-left').click();
+            console.log('Swiped Left: Preferred the Bottom Character!');
+            animateSwipe('right');
+            handleChoice('right'); // Directly calls the engine safely
         }
     }
 };
-
 const animateSwipe = (direction) => {
     const btnLeft = document.getElementById('btn-left');
     const btnRight = document.getElementById('btn-right');
@@ -687,3 +713,14 @@ const saveStateToHistory = () => {
     const undoBtn = document.getElementById('btn-undo');
     if (undoBtn) undoBtn.disabled = false;
 };
+
+const isChaos = () => {
+    let chaosLength = starWarsList.length + the100List.length + tolkienList.length + percyJacksonList.length;
+    let arrList = [starWarsList, the100List, tolkienList, percyJacksonList];
+    chaosList = [].concat(...arrList);
+    // Debug check to see your massive unified roster in the console
+    console.log("Chaos Mode Active! Total characters:", chaosList.length);
+    console.log(chaosList);
+
+}
+
